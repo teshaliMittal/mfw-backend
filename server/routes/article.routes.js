@@ -9,11 +9,17 @@ module.exports = app => {
     // Retrieve all articles
     router.get("/", articles.findAll);
 
-    // Retrieve all published articles
-    router.get("/published", articles.findAllPublished);
-
     // Retrieve a single article with id
     router.get("/:id", articles.findOne);
+
+    // Retrieve all articles with publication type
+    router.get("/:publication_type", articles.findAllByPublished);
+
+    // Retrieve all articles by author
+    router.get("/:author", articles.findAllByAuhtor);
+
+    // Retrieve all articles by topic
+    router.get("/:topic", articles.findAllByTopic);
 
     // Update a article with id
     router.put("/:id", articles.update);

@@ -15,8 +15,11 @@ exports.create = (req, res) => {
     // Create a Article
     const article = {
         title: req.body.title,
-        description: req.body.description,
-        published: req.body.published ? req.body.published : false
+        content: req.body.description,
+        publication_type: req.body.publication_type,
+        image_url: req.body.image_url,
+        topic: req.body.topic,
+        author: req.body.author
     };
 
     // Save Article in the database
@@ -132,9 +135,34 @@ exports.deleteAll = (req, res) => {
         });
 };
 
-// Find all published Articles
-exports.findAllPublished = (req, res) => {
-    Article.findAll({ where: { published: true } })
+// Find all Articles by publication type
+exports.findAllByPublished = (req, res) => {
+    Article.findAll({ where: { publication_type: req.params.publication_type } })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving articles."
+            });
+        });
+};
+// Find all articles by author
+exports.findAllByAuhtor = (req, res) => {
+    Article.findAll({ where: { author: req.params.author } })
+        .then(data => {
+            res.send(data);
+        })
+        .catch(err => {
+            res.status(500).send({
+                message: err.message || "Some error occurred while retrieving articles."
+            });
+        });
+};
+
+// Find all articles by topic
+exports.findAllByTopic = (req, res) => {
+    Article.findAll({ where: { topic: req.params.topic } })
         .then(data => {
             res.send(data);
         })

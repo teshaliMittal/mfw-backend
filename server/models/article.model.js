@@ -3,12 +3,23 @@ module.exports = (sequelize, Sequelize) => {
         title: {
             type: Sequelize.STRING
         },
-        description: {
+        content: {
             type: Sequelize.STRING
         },
-        published: {
-            type: Sequelize.BOOLEAN
+        publication_type: {
+            type: Sequelize.STRING
+        },
+        image_url: {
+            type: Sequelize.STRING
+        },
+        topic: {
+            type: Sequelize.STRING
+        },
+        author: {
+            type: Sequelize.STRING
         }
+
+
     });
 
     return Article;
