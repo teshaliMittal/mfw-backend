@@ -28,6 +28,7 @@ var corsOptions = {
   });
   
   require("./routes/article.routes.js")(app);
+  require("./routes/topics.routes.js")(app);
   // set port, listen for requests
   const PORT = process.env.PORT || 5001;
   app.listen(PORT, () => {
