@@ -7,7 +7,7 @@ module.exports = app => {
     router.post("/", topics.create);
 
     // Retrieve all articles
-    router.get("/", articles.findAll);
+    router.get("/", topics.findAll);
 
-    app.use('/api/articles', router);
+    app.use('/api/topics', router);
 };

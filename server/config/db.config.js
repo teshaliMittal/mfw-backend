@@ -1,8 +1,8 @@
 module.exports = {
-    HOST: "localhost",
-    USER: "mfw",
-    PASSWORD: "123",
-    DB: "api",
+    HOST: "premium42.agenetwork.org",
+    USER: "agenet5_mfw-user",
+    PASSWORD: "Moment4Women",
+    DB: "agenet5_momentForWomen",
     dialect: "postgres",
     pool: {
         max: 5,

@@ -17,13 +17,7 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false
         },
         topic: {
-            type: Sequelize.STRING,
-            allowNull: false,
-            references: {
-                model: topic,
-                key: displayName,
-                deferrable: Sequelize.Deferrable.INITIALLY_IMMEDIATE
-            }
+            type: Sequelize.STRING
         },
         author: {
             type: Sequelize.STRING,
