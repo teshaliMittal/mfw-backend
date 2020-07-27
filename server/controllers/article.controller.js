@@ -1,7 +1,10 @@
 const db = require("../models");
 const Article = db.articles;
 const Op = db.Sequelize.Op;
+const multer = require('multer');
+const fs = require('fs');
 
+const upload = multer({ dest: '/tmp/' });
 // Create and Save a new Article
 exports.create = (req, res) => {
     // Validate request
