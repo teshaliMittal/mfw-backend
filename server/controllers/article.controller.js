@@ -18,21 +18,23 @@ exports.create = (req, res) => {
     // Create a Article
     const article = {
         title: req.body.title,
-        content: req.body.description,
+        content: req.body.content,
         publication_type: req.body.publication_type,
-        image_url: req.body.image_url,
         topic: req.body.topic,
-        author: req.body.author
+        author: req.body.author,
+        image: fs.readFileSync(
+            __dirname + "/../../uploads/" + req.file.filename
+        )
     };
 
     // Save Article in the database
     Article.create(article)
         .then(data => {
-            res.send(data);
+            res.send(`Article has been uploaded.`);
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while creating the Article."
+                message: err.message || "Some error occurred while uploading the Article."
             });
         });
 };

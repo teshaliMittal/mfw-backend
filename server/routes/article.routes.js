@@ -1,10 +1,9 @@
 module.exports = app => {
     const articles = require("../controllers/article.controller.js");
-
     var router = require("express").Router();
-
+    const upload = require("../middleware/upload");
     // Create a new article
-    router.post("/", articles.create);
+    router.post("/", upload.single("image"), articles.create);
 
     // Retrieve all articles
     router.get("/", articles.findAll);

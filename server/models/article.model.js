@@ -1,28 +1,24 @@
 module.exports = (sequelize, Sequelize) => {
     const Article = sequelize.define("article", {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true
-        },
+
         title: {
             type: Sequelize.STRING,
             allowNull: false,
         },
         content: {
-            type: Sequelize.TEXT,
+            type: Sequelize.STRING,
             allowNull: false
         },
         publication_type: {
             type: Sequelize.STRING,
             allowNull: false
         },
-        image: {
-            type: Sequelize.STRING,
-            allowNull: false
-        },
         topic: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+            allowNull: true
+        },
+        image: {
+            type: Sequelize.BLOB
         },
         author: {
             type: Sequelize.STRING,
